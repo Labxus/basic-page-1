@@ -1,0 +1,24 @@
+---
+
+import Layout from "../../layouts/layout.astro"
+import json from "../../services/data/infoPage.json"
+
+---
+
+<Layout title="FACILIDADES O ACUERDOS DE PAGO">
+
+    <div class="w-screen h-auto py-20">
+
+        <div class="container mx-auto flex flex-col justify-center items-center gap-10 p-5">
+            <div class="w-full h-auto text-center p-5">
+                <p class="font-semibold text-xl">{json.servicios.facilidadesAcuedosPagos.paragraph}</p>
+            </div>
+
+            <div class="w-full h-[25rem]">
+                <iframe width="100%" height="100%" src={json.servicios.facilidadesAcuedosPagos.link} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+
+    </div>
+
+</Layout>

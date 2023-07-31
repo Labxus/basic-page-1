@@ -1,0 +1,76 @@
+---
+import Layout from "../layouts/layout.astro";
+import Chordion from "../components/chordion.astro";
+import InfoImg from "../components/infoImg.astro";
+import InfoBtn from "../components/infoBtn.astro";
+import InfoBtnImg from "../components/infoBtnImg.astro";
+import SecVisionMision from "../components/sections/secVisionMision.astro";
+import FromChordion from "../components/fromChordion.astro";
+
+import json from '../services/data/infoPage.json'
+
+---
+
+<Layout title="NOSOTROS - Ecoimpuestos">
+    <div class="w-[99wh] h-auto min-h-screen">
+
+        <!-- start section we -->
+        <div class="w-full h-60 bg-gray-700 grid place-content-center">
+            <h2 class="font-bold text-5xl text-white ">{json.infoNosotros.titleNosotros.title}</h2>
+        </div>
+        <!-- end section we -->
+
+
+        <!-- start section who we are   -->
+        <InfoImg title = {json.infoNosotros.whoWeAre.title}
+            paragraph = {json.infoNosotros.whoWeAre.paragraph}
+            imageUrl = {json.infoNosotros.whoWeAre.imageUrl}        
+        />
+        <!-- end section who we are  -->
+
+
+        <!-- start section our history  -->
+        <InfoBtnImg title = {json.infoNosotros.ourHistory.title}
+                paragraph = {json.infoNosotros.ourHistory.paragraph}
+                textBtn = {json.infoNosotros.ourHistory.textBtn}
+                imageUrl = {json.infoNosotros.ourHistory.imageUrl}
+                imgRight = {json.infoNosotros.ourHistory.imgRight}
+        />
+        <!-- end section our history -->
+
+        <!-- start  section vision and mision-->
+        <SecVisionMision JsonCards = {json.infoNosotros.visionMision.infoCard}
+            jsonGraph = {json.infoNosotros.visionMision.infoGraph}
+        />
+         <!-- end section vision and mision -->
+
+         <!-- start section frequently questions   -->
+        <div class="container mx-auto w-full flex flex-col h-auto gap-10 mb-10 py-10">
+            <h3  class="font-bold text-4xl text-titleColor text-center md:text-5xl">{json.infoNosotros.frequentlyQuestions.title}</h3>
+
+            <div class="w-full h-auto flex flex-col justify-center items-center gap-10 lg:flex-row lg:justify-evenly lg:items-start">
+                <div class="w-full h-auto flex flex-col gap-10 justify-center items-center">
+
+                    {json.infoNosotros.frequentlyQuestions.questions.map(info => (
+                        <Chordion tituloChordion = {info.title}
+                        parrafoChordion = {info.paragraph}
+                        />
+                    ))}
+                    
+                </div>
+ 
+                <div class="w-full h-auto">
+                    <FromChordion 
+                    />
+                </div>
+            </div>
+
+
+        </div>
+        <!--  start section frequently questions -->
+
+        <!-- start section form -->
+
+        <!-- end section form -->
+    </div>
+</Layout>
