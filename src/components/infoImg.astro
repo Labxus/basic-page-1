@@ -1,19 +1,22 @@
 ---
 
-const {title,paragraph,imageUrl} = Astro.props
+const {title,paragraph,imageUrl,imgRight} = Astro.props
+
+console.log("img",imgRight);
+
 
 ---
 
 
-<div class="container mx-auto w-full h-auto flex my-5 justify-evenly md:items-center md:flex-col md:gap-10 lg:flex-row lg:p-10">
+<div class=`container mx-auto w-full h-auto flex my-5 justify-evenly md:items-center max-lg:flex-col md:gap-10 lg:p-10 ${(imgRight) ? "flex-row-reverse":"flex-row"}`>
 
-    <div class={`w-[40rem] h-[20rem] hidden md:block md:h-auto lg:w-[50rem]`}>
+    <div class=`w-[40rem] h-[20rem] hidden md:block md:h-auto lg:w-[50rem]`>
         <img class="w-full h-full rounded-xl" src=`imgs/${imageUrl}` alt="">
     </div>
 
-    <div class="w-full h-auto flex flex-col justify-center items-center gap-10  md:items-center lg:items-start lg:pl-[5rem]">
+    <div class={`w-full h-auto flex flex-col justify-center items-center gap-10  md:items-center lg:items-start lg:${imgRight? "pl-0" : "pl-[5rem]" }`}>
         <h3 class="font-bold text-4xl text-titleColor text-center md:text-5xl"> {title} </h3>
-        <p class="lg:text-start text-justify text-xl px-5"> {paragraph} </p>
+        <p class={`text-justify text-xl px-5 ${imgRight?"px-0":"px-5"}`}> {paragraph} </p>
     </div>
 
 </div>

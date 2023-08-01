@@ -11,11 +11,14 @@ const {JsonCards,jsonGraph} = Astro.props
 <div class="container mx-auto w-[90vw] h-auto flex py-10 justify-evenly items-center flex-wrap gap-10">
 
     {JsonCards.map( (card:Card) => (
-        <CardMini title = {card.title}
-            paragraph = {card.paragraph}
-        />
-    ) )}          
-
-    <CardGraph ourPercentages = {jsonGraph} />
+            <CardMini title = {card.title}
+                paragraph = {card.paragraph}
+            />
+        ))
+    }
+    
+    {
+        jsonGraph? <CardGraph ourPercentages = {jsonGraph} /> : null
+    }
     
 </div>
